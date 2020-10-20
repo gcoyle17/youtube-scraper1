@@ -94,13 +94,18 @@ exports.handleMaster = async (page, requestQueue, input, request) => {
 };
 
 exports.handleDetail = async (page, request) => {
-    const { titleXp, viewCountXp, uploadDateXp, likesXp, dislikesXp, channelXp, subscribersXp, descriptionXp, durationSlctr } = CONSTS.SELECTORS.VIDEO;
+    const { titleXp, viewCountXp, uploadDateXp, likesXp, dislikesXp, channelXp, subscribersXp, descriptionXp, durationSlctr, licenseXp } = CONSTS.SELECTORS.VIDEO;
 
     log.info(`handling detail url ${request.url}`);
 
     const videoId = utils.getVideoId(request.url);
     log.debug(`got videoId as ${videoId}`);
 
+    log.debug(`searching for license at ${licenseXp}`);
+    const license = await utils.getDataFromXpath(page, licenseXp, 'innerHTML')
+        .catch((e) => handleErrorAndScreenshot(page, e, 'Getting-license-failed'));
+    log.debug(`got license as ${license}`);
+    
     log.debug(`searching for title at ${titleXp}`);
     const title = await utils.getDataFromXpath(page, titleXp, 'innerHTML')
         .catch((e) => handleErrorAndScreenshot(page, e, 'Getting-title-failed'));
@@ -152,6 +157,7 @@ exports.handleDetail = async (page, request) => {
 
     await Apify.pushData({
         title,
+        license,
         id: videoId,
         url: request.url,
         viewCount,
