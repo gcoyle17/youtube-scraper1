@@ -29,6 +29,7 @@ exports.SELECTORS = {
         channelXp: '//ytd-channel-name/div/div/yt-formatted-string/a',
         subscribersXp: "//*[@id='owner-sub-count']",
         descriptionXp: '//ytd-expander/div/div/yt-formatted-string',
+        licenseXp: '//*[@id="content"]/yt-formatted-string',
         durationSlctr: '#movie_player span.ytp-time-duration',
     },
 };
