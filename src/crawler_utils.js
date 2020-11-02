@@ -158,7 +158,13 @@ exports.handleDetail = async (page, request) => {
     log.debug(`got videoDuration as ${durationStr}`);
 
     const description = await utils.getDataFromXpath(page, descriptionXp, 'innerHTML');
+    
+    const artistName = " ";
 
+    if (title.includes("Drake")){
+        artistName = "Drake"
+    }
+    
     await Apify.pushData({
         title,
         license, // NEW --> added license variable to be pushed to Apify
@@ -173,6 +179,7 @@ exports.handleDetail = async (page, request) => {
         numberOfSubscribers,
         duration: durationStr,
         details: description,
+        artistName
     });
 };
 
