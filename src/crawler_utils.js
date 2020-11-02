@@ -96,7 +96,7 @@ exports.handleMaster = async (page, requestQueue, input, request) => {
 exports.handleDetail = async (page, request) => {
     //NEW --> Added licenseXp to const list
     
-    const { titleXp, viewCountXp, uploadDateXp, likesXp, dislikesXp, channelXp, subscribersXp, descriptionXp, durationSlctr, licenseXp } = CONSTS.SELECTORS.VIDEO;
+    const { titleXp, viewCountXp, uploadDateXp, likesXp, dislikesXp, channelXp, subscribersXp, descriptionXp, durationSlctr } = CONSTS.SELECTORS.VIDEO;
 
     log.info(`handling detail url ${request.url}`);
 
@@ -105,10 +105,10 @@ exports.handleDetail = async (page, request) => {
 
     // NEW --> Added license variable to hold license data point and error handling 
     
-    log.debug(`searching for license at ${licenseXp}`);
-    const license = await utils.getDataFromXpath(page, licenseXp, 'innerHTML')
-        .catch((e) => handleErrorAndScreenshot(page, e, 'Getting-license-failed'));
-    log.debug(`got license as ${license}`);
+    //log.debug(`searching for license at ${licenseXp}`);
+    //const license = await utils.getDataFromXpath(page, licenseXp, 'innerHTML')
+     //   .catch((e) => handleErrorAndScreenshot(page, e, 'Getting-license-failed'));
+    //log.debug(`got license as ${license}`);
     
     log.debug(`searching for title at ${titleXp}`);
     const title = await utils.getDataFromXpath(page, titleXp, 'innerHTML')
@@ -167,7 +167,7 @@ exports.handleDetail = async (page, request) => {
     
     await Apify.pushData({
         title,
-        license, // NEW --> added license variable to be pushed to Apify
+        //license, // NEW --> added license variable to be pushed to Apify
         id: videoId,
         url: request.url,
         viewCount,
