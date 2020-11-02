@@ -159,10 +159,10 @@ exports.handleDetail = async (page, request) => {
 
     const description = await utils.getDataFromXpath(page, descriptionXp, 'innerHTML');
     
-    const artistName = " ";
+    var artistName = " ";
 
     if (title.includes("Drake")){
-        const artistName = "Drake";
+        artistName = "Drake";
     }
     
     await Apify.pushData({
