@@ -162,7 +162,7 @@ exports.handleDetail = async (page, request) => {
     const artistName = " ";
 
     if (title.includes("Drake")){
-        artistName = "Drake"
+        const artistName = "Drake";
     }
     
     await Apify.pushData({
