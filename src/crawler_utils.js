@@ -163,7 +163,95 @@ exports.handleDetail = async (page, request) => {
 
     if (title.includes("Drake")){
         artistName = "Drake";
-    }
+    };
+
+    if (title.includes("Lady Gaga")){
+        artistName = "Lady Gaga";
+    };
+
+    if (title.includes("Dua Lipa")){
+        artistName = "Dua Lipa";
+    };
+
+    if (title.includes("Tame Impala")){
+        artistName = "Tame Impala";
+    };
+
+    if (title.includes("Backstreet Boys")){
+        artistName = "Backstreet Boys";
+    };
+
+    if (title.includes("Elton John")){
+        artistName = "Elton John";
+    };
+
+    if (title.includes("Coldplay")){
+        artistName = "Coldplay";
+    };
+
+    if (title.includes("Celine Dion")){
+        artistName = "Celine Dion";
+    };
+
+    if (title.includes("Beach House")){
+        artistName = "Beach House";
+    };
+
+    if (title.includes("Mac Demarco")){
+        artistName = "Mac Demarco";
+    };
+
+    if (title.includes("Adele")){
+        artistName = "Adele";
+    };
+
+    if (title.includes("Tech N9ne")){
+        artistName = "Tech N9ne";
+    };
+
+    if (title.includes("Thrice")){
+        artistName = "Thrice";
+    };
+
+    if (title.includes("Ariel")){
+        artistName = "Ariel";
+    };
+
+    if (title.includes("Vampire Weekend")){
+        artistName = "Vampire Weekend";
+    };
+
+    if (title.includes("Spice Girls")){
+        artistName = "Spice Girls";
+    };
+
+    if (title.includes("Talib Kweli")){
+        artistName = "Talib Kweli";
+    };
+
+    if (title.includes("Robert Glasper")){
+        artistName = "Robert Glasper";
+    };
+
+    if (title.includes("Black Marble")){
+        artistName = "Black Marble";
+    };
+
+    if (title.includes("DIIV")){
+        artistName = "DIIV";
+    };
+
+    if (title.includes("Bon Iver")){
+        artistName = "Bon Iver";
+    };
+
+    if (title.includes("Delta Rae")){
+        artistName = "Delta Rae";
+    };
+
+    if (title.includes("String Cheese Incident")){
+        artistName = "String Cheese Incident";
+    };
     
     await Apify.pushData({
         title,
