@@ -161,95 +161,95 @@ exports.handleDetail = async (page, request) => {
     
     var artistName = " ";
 
-    if (title.includes("Drake")){
+    if (title.toLowerCase().includes("Drake".toLowerCase())){
         artistName = "Drake";
     };
 
-    if (title.includes("Lady Gaga")){
+    if (title.toLowerCase().includes("Lady Gaga".toLowerCase())){
         artistName = "Lady Gaga";
     };
 
-    if (title.includes("Dua Lipa")){
+    if (title.toLowerCase().includes("Dua Lipa".toLowerCase())){
         artistName = "Dua Lipa";
     };
 
-    if (title.includes("Tame Impala")){
+    if (title.toLowerCase().includes("Tame Impala".toLowerCase())){
         artistName = "Tame Impala";
     };
 
-    if (title.includes("Backstreet Boys")){
+    if (title.toLowerCase().includes("Backstreet Boys".toLowerCase())){
         artistName = "Backstreet Boys";
     };
 
-    if (title.includes("Elton John")){
+    if (title.toLowerCase().includes("Elton John".toLowerCase())){
         artistName = "Elton John";
     };
 
-    if (title.includes("Coldplay")){
+    if (title.toLowerCase().includes("Coldplay".toLowerCase())){
         artistName = "Coldplay";
     };
 
-    if (title.includes("Celine Dion")){
+    if (title.toLowerCase().includes("Celine Dion".toLowerCase())){
         artistName = "Celine Dion";
     };
 
-    if (title.includes("Beach House")){
+    if (title.toLowerCase().includes("Beach House".toLowerCase())){
         artistName = "Beach House";
     };
 
-    if (title.includes("Mac Demarco")){
+    if (title.toLowerCase().includes("Mac Demarco".toLowerCase())){
         artistName = "Mac Demarco";
     };
 
-    if (title.includes("Adele")){
+    if (title.toLowerCase().includes("Adele".toLowerCase())){
         artistName = "Adele";
     };
 
-    if (title.includes("Tech N9ne")){
+    if (title.toLowerCase().includes("Tech N9ne".toLowerCase())){
         artistName = "Tech N9ne";
     };
 
-    if (title.includes("Thrice")){
+    if (title.toLowerCase().includes("Thrice".toLowerCase())){
         artistName = "Thrice";
     };
 
-    if (title.includes("Ariel")){
+    if (title.toLowerCase().includes("Ariel".toLowerCase())){
         artistName = "Ariel";
     };
 
-    if (title.includes("Vampire Weekend")){
+    if (title.toLowerCase().includes("Vampire Weekend".toLowerCase())){
         artistName = "Vampire Weekend";
     };
 
-    if (title.includes("Spice Girls")){
+    if (title.toLowerCase().includes("Spice Girls".toLowerCase())){
         artistName = "Spice Girls";
     };
 
-    if (title.includes("Talib Kweli")){
+    if (title.toLowerCase().includes("Talib Kweli".toLowerCase())){
         artistName = "Talib Kweli";
     };
 
-    if (title.includes("Robert Glasper")){
+    if (title.toLowerCase().includes("Robert Glasper".toLowerCase())){
         artistName = "Robert Glasper";
     };
 
-    if (title.includes("Black Marble")){
+    if (title.toLowerCase().includes("Black Marble".toLowerCase())){
         artistName = "Black Marble";
     };
 
-    if (title.includes("DIIV")){
+    if (title.toLowerCase().includes("DIIV".toLowerCase())){
         artistName = "DIIV";
     };
 
-    if (title.includes("Bon Iver")){
+    if (title.toLowerCase().includes("Bon Iver".toLowerCase())){
         artistName = "Bon Iver";
     };
 
-    if (title.includes("Delta Rae")){
+    if (title.toLowerCase().includes("Delta Rae".toLowerCase())){
         artistName = "Delta Rae";
     };
 
-    if (title.includes("String Cheese Incident")){
+    if (title.toLowerCase().includes("String Cheese Incident".toLowerCase())){
         artistName = "String Cheese Incident";
     };
     
