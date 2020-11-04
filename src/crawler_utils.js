@@ -160,98 +160,14 @@ exports.handleDetail = async (page, request) => {
     const description = await utils.getDataFromXpath(page, descriptionXp, 'innerHTML');
     
     var artistName = " ";
-
-    if (title.toLowerCase().includes("Drake".toLowerCase())){
-        artistName = "Drake";
-    };
-
-    if (title.toLowerCase().includes("Lady Gaga".toLowerCase())){
-        artistName = "Lady Gaga";
-    };
-
-    if (title.toLowerCase().includes("Dua Lipa".toLowerCase())){
-        artistName = "Dua Lipa";
-    };
-
-    if (title.toLowerCase().includes("Tame Impala".toLowerCase())){
-        artistName = "Tame Impala";
-    };
-
-    if (title.toLowerCase().includes("Backstreet Boys".toLowerCase())){
-        artistName = "Backstreet Boys";
-    };
-
-    if (title.toLowerCase().includes("Elton John".toLowerCase())){
-        artistName = "Elton John";
-    };
-
-    if (title.toLowerCase().includes("Coldplay".toLowerCase())){
-        artistName = "Coldplay";
-    };
-
-    if (title.toLowerCase().includes("Celine Dion".toLowerCase())){
-        artistName = "Celine Dion";
-    };
-
-    if (title.toLowerCase().includes("Beach House".toLowerCase())){
-        artistName = "Beach House";
-    };
-
-    if (title.toLowerCase().includes("Mac Demarco".toLowerCase())){
-        artistName = "Mac Demarco";
-    };
-
-    if (title.toLowerCase().includes("Adele".toLowerCase())){
-        artistName = "Adele";
-    };
-
-    if (title.toLowerCase().includes("Tech N9ne".toLowerCase())){
-        artistName = "Tech N9ne";
-    };
-
-    if (title.toLowerCase().includes("Thrice".toLowerCase())){
-        artistName = "Thrice";
-    };
-
-    if (title.toLowerCase().includes("Ariel".toLowerCase())){
-        artistName = "Ariel";
-    };
-
-    if (title.toLowerCase().includes("Vampire Weekend".toLowerCase())){
-        artistName = "Vampire Weekend";
-    };
-
-    if (title.toLowerCase().includes("Spice Girls".toLowerCase())){
-        artistName = "Spice Girls";
-    };
-
-    if (title.toLowerCase().includes("Talib Kweli".toLowerCase())){
-        artistName = "Talib Kweli";
-    };
-
-    if (title.toLowerCase().includes("Robert Glasper".toLowerCase())){
-        artistName = "Robert Glasper";
-    };
-
-    if (title.toLowerCase().includes("Black Marble".toLowerCase())){
-        artistName = "Black Marble";
-    };
-
-    if (title.toLowerCase().includes("DIIV".toLowerCase())){
-        artistName = "DIIV";
-    };
-
-    if (title.toLowerCase().includes("Bon Iver".toLowerCase())){
-        artistName = "Bon Iver";
-    };
-
-    if (title.toLowerCase().includes("Delta Rae".toLowerCase())){
-        artistName = "Delta Rae";
-    };
-
-    if (title.toLowerCase().includes("String Cheese Incident".toLowerCase())){
-        artistName = "String Cheese Incident";
-    };
+    
+    var nameArr = ['Drake', 'Lady Gaga', 'Dua Lipa', 'Tame Impala', 'Backstreet Boys', 'Elton John', 'Coldplay', 'Celine Dion', 'Beach House', 'Mac Demarco', 'Adele', 'Tech N9ne', 'Thrice', 'Ariel Pink', 'Vampire Weekend', 'Spice Girls', 'Talib Kweli', 'Robert Glasper', 'Black Marble', 'DIIV', 'Bon Iver', 'Delta Rea', 'String Cheese Incident'];
+    
+    for (var i = 0; i < nameArr.length; i++){
+        if (title.indexOf(nameArr[i]) > -1){
+            artistname = nameArr[i]
+        }
+    }
     
     await Apify.pushData({
         title,
