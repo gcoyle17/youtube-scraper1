@@ -163,19 +163,12 @@ exports.handleDetail = async (page, request) => {
 
     var nameArr = ['Drake', 'Lady Gaga', 'Dua Lipa', 'Tame Impala', 'Backstreet Boys', 'Elton John', 'Coldplay', 'Celine Dion', 'Beach House', 'Mac Demarco', 'Adele', 'Tech N9ne', 'Thrice', 'Ariel Pink', 'Vampire Weekend', 'Spice Girls', 'Talib Kweli', 'Robert Glasper', 'Black Marble', 'DIIV', 'Bon Iver', 'Delta Rea', 'String Cheese Incident'];
     
-    function ContainsName(title, items){
-        for (var i in items){
+    for (var i in nameArr){
             var item = items[i];
             if(title.indexOf(item) > -1){
-                return true;
+                artistName = item;
             }
         }
-        return false;
-    }
-
-    if (ContainsName(title, ['Drake', 'Lady Gaga', 'Dua Lipa', 'Tame Impala', 'Backstreet Boys', 'Elton John', 'Coldplay', 'Celine Dion', 'Beach House', 'Mac Demarco', 'Adele', 'Tech N9ne', 'Thrice', 'Ariel Pink', 'Vampire Weekend', 'Spice Girls', 'Talib Kweli', 'Robert Glasper', 'Black Marble', 'DIIV', 'Bon Iver', 'Delta Rea', 'String Cheese Incident'])){
-        artistName = item;
-    }
     
     await Apify.pushData({
         title,
