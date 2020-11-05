@@ -164,7 +164,7 @@ exports.handleDetail = async (page, request) => {
     var nameArr = ['Drake', 'Lady Gaga', 'Dua Lipa', 'Tame Impala', 'Backstreet Boys', 'Elton John', 'Coldplay', 'Celine Dion', 'Beach House', 'Mac Demarco', 'Adele', 'Tech N9ne', 'Thrice', 'Ariel Pink', 'Vampire Weekend', 'Spice Girls', 'Talib Kweli', 'Robert Glasper', 'Black Marble', 'DIIV', 'Bon Iver', 'Delta Rea', 'String Cheese Incident'];
     
     for (var i = 0; i < nameArr.length; i++){
-        if (title.indexOf(nameArr[i]) > -1){
+        if (title.includes(nameArr[i])){
             artistname = nameArr[i]
         }
     }
