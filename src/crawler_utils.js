@@ -97,6 +97,20 @@ exports.handleDetail = async (page, request) => {
     //NEW --> Added licenseXp to const list
     
     const { titleXp, viewCountXp, uploadDateXp, likesXp, dislikesXp, channelXp, subscribersXp, descriptionXp, durationSlctr } = CONSTS.SELECTORS.VIDEO;
+    
+    var artistName = " ";
+
+    var nameArr = ['Drake', 'Lady Gaga', 'Dua Lipa', 'Tame Impala', 'Backstreet Boys', 'Elton John', 'Coldplay', 'Celine Dion', 'Céline Dion', 'Beach House', 'Mac Demarco', 'Adele', 'Tech N9ne', 'Thrice', 'Ariel Pink', 'Vampire Weekend', 'Spice Girls', 'Talib Kweli', 'Robert Glasper', 'Black Marble', 'DIIV', 'Bon Iver', 'Delta Rae', 'String Cheese Incident'];
+    
+    var lowerTitle = titleXp.toLowerCase();
+    
+        for (var i in nameArr){
+            var item = nameArr[i];
+            if(lowerTitle.indexOf(item.toLowerCase()) > -1){
+                artistName = item;
+            }
+        }
+    
 
     log.info(`handling detail url ${request.url}`);
 
@@ -159,19 +173,7 @@ exports.handleDetail = async (page, request) => {
 
     const description = await utils.getDataFromXpath(page, descriptionXp, 'innerHTML');
     
-    var artistName = " ";
 
-    var nameArr = ['Drake', 'Lady Gaga', 'Dua Lipa', 'Tame Impala', 'Backstreet Boys', 'Elton John', 'Coldplay', 'Celine Dion', 'Céline Dion', 'Beach House', 'Mac Demarco', 'Adele', 'Tech N9ne', 'Thrice', 'Ariel Pink', 'Vampire Weekend', 'Spice Girls', 'Talib Kweli', 'Robert Glasper', 'Black Marble', 'DIIV', 'Bon Iver', 'Delta Rae', 'String Cheese Incident'];
-    
-    var lowerTitle = title.toLowerCase();
-    
-        for (var i in nameArr){
-            var item = nameArr[i];
-            if(lowerTitle.indexOf(item.toLowerCase()) > -1){
-                artistName = item;
-            }
-        }
-    
     await Apify.pushData({
         title,
         //license, // NEW --> added license variable to be pushed to Apify
