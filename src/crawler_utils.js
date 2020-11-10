@@ -121,15 +121,18 @@ exports.handleDetail = async (page, request) => {
     var artistName = " ";
 
     var nameArr = ['Drake', 'Lady Gaga', 'Dua Lipa', 'Tame Impala', 'Backstreet Boys', 'Elton John', 'Coldplay', 'Celine Dion', 'Céline Dion', 'Beach House', 'Mac Demarco', 'Adele', 'Tech N9ne', 'Thrice', 'Ariel Pink', 'Vampire Weekend', 'Spice Girls', 'Talib Kweli', 'Robert Glasper', 'Black Marble', 'DIIV', 'Bon Iver', 'Delta Rae', 'String Cheese Incident'];
-    
-    var lowerTitle = title.toLowerCase();
-    
-        for (var i in nameArr){
-            var item = nameArr[i];
-            if(lowerTitle.indexOf(item.toLowerCase()) > -1){
-                artistName = item;
-            }
+
+    var lowerTitle = titleXp.toLowerCase();
+
+    for (var i in nameArr){
+        var item = nameArr[i];
+        if(lowerTitle.indexOf(item.toLowerCase()) > -1){
+            artistName = item;
         }
+        else{
+            artistName = " "
+        }
+    }
     
     
 
