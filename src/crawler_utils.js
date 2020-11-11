@@ -129,9 +129,6 @@ exports.handleDetail = async (page, request) => {
         if(lowerTitle.indexOf(item.toLowerCase()) > -1){
             artistName = item;
         }
-        else{
-            artistName = " "
-        }
     }
     
     
