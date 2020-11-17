@@ -94,7 +94,7 @@ exports.loadVideosUrls = async (requestQueue, page, maxRequested, isSearchResult
 };
 
 exports.getDataFromXpath = async (page, xPath, attrib) => {
-    await page.waitForXPath(xPath, { timeout: 12000000 });
+    await page.waitForXPath(xPath, { timeout: 120000 });
     const xElement = await page.$x(xPath);
     return page.evaluate((el, key) => el[key], xElement[0], attrib);
 };
