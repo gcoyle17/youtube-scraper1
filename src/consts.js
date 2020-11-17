@@ -29,7 +29,7 @@ exports.SELECTORS = {
         channelXp: '//ytd-channel-name/div/div/yt-formatted-string/a',
         subscribersXp: "//*[@id='owner-sub-count']",
         descriptionXp: '//ytd-expander/div/div/yt-formatted-string',
-        licenseXp: '//ytd-expander/div/div/div/div/yt-formatted-string', // NEW ---> added license pull with XPath from youtube description 
+        licenseXp: '//ytd-expander/ytd-metadata-row-container-renderer/div/ytd-metadata-row-header-renderer/h4/yt-formatted-string', // NEW ---> added license pull with XPath from youtube description  
         durationSlctr: '#movie_player span.ytp-time-duration',
 
     },
