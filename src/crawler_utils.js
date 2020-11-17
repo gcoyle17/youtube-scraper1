@@ -96,7 +96,7 @@ exports.handleMaster = async (page, requestQueue, input, request) => {
 exports.handleDetail = async (page, request) => {
     //NEW --> Added licenseXp to const list
     
-    const { titleXp, viewCountXp, uploadDateXp, likesXp, dislikesXp, channelXp, subscribersXp, descriptionXp, durationSlctr } = CONSTS.SELECTORS.VIDEO;
+    const { titleXp, viewCountXp, uploadDateXp, likesXp, dislikesXp, channelXp, subscribersXp, descriptionXp, durationSlctr, licenseXp } = CONSTS.SELECTORS.VIDEO;
     
 
     
@@ -176,6 +176,8 @@ exports.handleDetail = async (page, request) => {
     log.debug(`got videoDuration as ${durationStr}`);
 
     const description = await utils.getDataFromXpath(page, descriptionXp, 'innerHTML');
+
+    const license = await utils.getDataFromXpath(page, licenseXp, 'innerHTML');
     
 
     await Apify.pushData({
@@ -192,7 +194,8 @@ exports.handleDetail = async (page, request) => {
         numberOfSubscribers,
         duration: durationStr,
         details: description,
-        artistName
+        artistName,
+        license
     });
 };
 
