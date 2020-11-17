@@ -177,7 +177,10 @@ exports.handleDetail = async (page, request) => {
 
     const description = await utils.getDataFromXpath(page, descriptionXp, 'innerHTML');
 
+    log.debug(`searching for license at ${licenseXp}`);
     const license = await utils.getDataFromXpath(page, licenseXp, 'innerHTML');
+    
+    log.debug(`got license as ${license}`);
     
 
     await Apify.pushData({
