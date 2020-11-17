@@ -29,7 +29,7 @@ exports.SELECTORS = {
         channelXp: '//ytd-channel-name/div/div/yt-formatted-string/a',
         subscribersXp: "//*[@id='owner-sub-count']",
         descriptionXp: '//ytd-expander/div/div/yt-formatted-string',
-        licenseXp: '/html/body/ytd-app/div/ytd-page-manager/ytd-watch-flexy/div[4]/div[1]/div/div[8]/div[3]/ytd-video-secondary-info-renderer/div/ytd-expander/ytd-metadata-row-container-renderer/div[2]/ytd-metadata-row-renderer[3]/div/yt-formatted-string', // NEW ---> added license pull with XPath from youtube description  
+        licenseXp: '//ytd-expander/ytd-metadata-row-container-renderer/div[2]/ytd-metadata-row-renderer[3]/div/yt-formatted-string', // NEW ---> added license pull with XPath from youtube description 
         durationSlctr: '#movie_player span.ytp-time-duration',
 
     },
