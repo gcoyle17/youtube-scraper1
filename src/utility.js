@@ -7,8 +7,14 @@ const { log, sleep } = Apify.utils;
 const CONSTS = require('./consts');
 
 exports.handleErrorAndScreenshot = async (page, e, errorName) => {
+    if (errorName == 'Getting-license-failed') {
+        return;
+    }
+
+    else{
     await Apify.utils.puppeteer.saveSnapshot(page, { key: `ERROR-${errorName}-${Math.random()}`});
     throw `Error: ${errorName} - Raw error: ${e.message}`;
+    }
 };
 
 /**
@@ -93,21 +99,10 @@ exports.loadVideosUrls = async (requestQueue, page, maxRequested, isSearchResult
     log.info(`[${searchOrUrl}]: Scrolling finished - Enqueued ${videosEnqueuedUnique} unique video URLs, ${videosEnqueued} total`);
 };
 
-exports.getDataFromXpath = async (page, xPath, attrib, ) => {
-    
-    try{
+exports.getDataFromXpath = async (page, xPath, attrib) => {
     await page.waitForXPath(xPath, { timeout: 120000 });
-    
-    }
-
-    catch(err){
-        console.log(err);
-    }
-
-    finally{
-        const xElement = await page.$x(xPath);
-        return page.evaluate((el, key) => el[key], xElement[0], attrib);
-    }
+    const xElement = await page.$x(xPath);
+    return page.evaluate((el, key) => el[key], xElement[0], attrib);
 };
 
 exports.getDataFromSelector = async (page, slctr, attrib) => {
