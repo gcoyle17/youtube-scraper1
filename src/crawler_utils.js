@@ -185,13 +185,10 @@ exports.handleDetail = async (page, request) => {
         .catch((e) => handleErrorAndScreenshot(page, e, 'Getting-license-failed'));
     log.debug(`got license as ${license}`);
     
-    if (String(license) == "You're signed out of YouTube"){
+    if (license == "You're signed out of YouTube"){
         license = "True";
     }
 
-    else{
-        license = "False";
-    }
     await Apify.pushData({
         title,
         //license, // NEW --> added license variable to be pushed to Apify
