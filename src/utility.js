@@ -93,10 +93,21 @@ exports.loadVideosUrls = async (requestQueue, page, maxRequested, isSearchResult
     log.info(`[${searchOrUrl}]: Scrolling finished - Enqueued ${videosEnqueuedUnique} unique video URLs, ${videosEnqueued} total`);
 };
 
-exports.getDataFromXpath = async (page, xPath, attrib) => {
+exports.getDataFromXpath = async (page, xPath, attrib, ) => {
+    
+    try{
     await page.waitForXPath(xPath, { timeout: 120000 });
-    const xElement = await page.$x(xPath);
-    return page.evaluate((el, key) => el[key], xElement[0], attrib);
+    
+    }
+
+    catch(err){
+        console.log(err);
+    }
+
+    finally{
+        const xElement = await page.$x(xPath);
+        return page.evaluate((el, key) => el[key], xElement[0], attrib);
+    }
 };
 
 exports.getDataFromSelector = async (page, slctr, attrib) => {
