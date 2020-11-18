@@ -187,11 +187,10 @@ exports.handleDetail = async (page, request) => {
 
     catch(error){
 
-        license = "NO LICENSE"
+        console.log(error)
     }
 
-    finally{
-
+   
     await Apify.pushData({
         title,
         //license, // NEW --> added license variable to be pushed to Apify
@@ -209,7 +208,7 @@ exports.handleDetail = async (page, request) => {
         artistName,
         license
         });
-    }
+    
 };
 
 exports.hndlPptGoto = async ({ page, request }) => {
