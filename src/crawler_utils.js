@@ -180,7 +180,7 @@ exports.handleDetail = async (page, request) => {
     log.debug(`searching for license at ${licenseXp}`);
     const license = await utils.getDataFromXpath(page, licenseXp, 'innerHTML');
         if (e.message.contains("waiting")){
-            license = "NONE"
+            license = "NONE";
         }
     
     log.debug(`got license as ${license}`);
