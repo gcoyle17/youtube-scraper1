@@ -162,6 +162,7 @@ exports.handleDetail = async (page, request) => {
     const channelName = await utils.getDataFromXpath(page, channelXp, 'innerHTML')
         .catch((e) => handleErrorAndScreenshot(page, e, 'Getting-channelName-failed'));
     log.debug(`got channelName as ${channelName}`);
+    
     const channelUrl = await utils.getDataFromXpath(page, channelXp, 'href')
         .catch((e) => handleErrorAndScreenshot(page, e, 'Getting-channelUrl-failed'));
     log.debug(`got channelUrl as ${channelUrl}`);
@@ -177,8 +178,11 @@ exports.handleDetail = async (page, request) => {
 
     const description = await utils.getDataFromXpath(page, descriptionXp, 'innerHTML');
 
+    const noLicense = " ";
+
     log.debug(`searching for license at ${licenseXp}`);
-    const license = await utils.getDataFromXpath(page, licenseXp, 'innerHTML');
+    const license = await utils.getDataFromXpath(page, licenseXp, 'innerHTML')
+        .catch((e) => handleErrorAndScreenshot(page, e, 'Getting-license-failed'));
     log.debug(`got license as ${license}`);
     
 
