@@ -186,7 +186,7 @@ exports.handleDetail = async (page, request) => {
     log.debug(`got license as ${license}`);
     
     if (license == "You're signed out of YouTube"){
-        license = "True"
+        license = "True";
     }
 
     await Apify.pushData({
