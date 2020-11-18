@@ -176,14 +176,21 @@ exports.handleDetail = async (page, request) => {
     log.debug(`got videoDuration as ${durationStr}`);
 
     const description = await utils.getDataFromXpath(page, descriptionXp, 'innerHTML');
+    
 
-    const license = " ";
-    
+    try{
     log.debug(`searching for license at ${licenseXp}`);
-        license = await utils.getDataFromXpath(page, licenseXp, 'innerHTML')
-        .catch((e) => license = "NO LICENSE");
+    const license = await utils.getDataFromXpath(page, licenseXp, 'innerHTML');
+        
     log.debug(`got license as ${license}`);
-    
+    }
+
+    catch(err){
+
+        license = "NO LICENSE"
+    }
+
+    finally{
 
     await Apify.pushData({
         title,
@@ -201,7 +208,8 @@ exports.handleDetail = async (page, request) => {
         details: description,
         artistName,
         license
-    });
+        });
+    }
 };
 
 exports.hndlPptGoto = async ({ page, request }) => {
