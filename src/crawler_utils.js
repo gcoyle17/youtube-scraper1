@@ -178,17 +178,8 @@ exports.handleDetail = async (page, request) => {
     const description = await utils.getDataFromXpath(page, descriptionXp, 'innerHTML');
 
     log.debug(`searching for license at ${licenseXp}`);
-    
-    const license = "";
-
-    try{
-
     const license = await utils.getDataFromXpath(page, licenseXp, 'innerHTML')
-
-    }
-    catch(err){
-            license = "NO LICENSE"
-        };
+        .catch((e) => license = "NO LICENSE");
     log.debug(`got license as ${license}`);
     
 
