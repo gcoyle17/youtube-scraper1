@@ -185,7 +185,7 @@ exports.handleDetail = async (page, request) => {
     log.debug(`got license as ${license}`);
     }
 
-    catch(err){
+    catch(error){
 
         license = "NO LICENSE"
     }
