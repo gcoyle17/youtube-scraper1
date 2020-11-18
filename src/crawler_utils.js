@@ -178,13 +178,16 @@ exports.handleDetail = async (page, request) => {
 
     const description = await utils.getDataFromXpath(page, descriptionXp, 'innerHTML');
 
-    const noLicense = " ";
+    
 
     log.debug(`searching for license at ${licenseXp}`);
     const license = await utils.getDataFromXpath(page, licenseXp, 'innerHTML')
         .catch((e) => handleErrorAndScreenshot(page, e, 'Getting-license-failed'));
     log.debug(`got license as ${license}`);
     
+    if (license == "You're signed out of YouTube"){
+        license = "True"
+    }
 
     await Apify.pushData({
         title,
