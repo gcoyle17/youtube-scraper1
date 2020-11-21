@@ -179,7 +179,7 @@ exports.handleDetail = async (page, request) => {
     const description = await utils.getDataFromXpath(page, descriptionXp, 'innerHTML');
 
     
-
+    /*
     log.debug(`searching for license at ${licenseXp}`);
     const license = await utils.getDataFromXpath(page, licenseXp, 'innerHTML')
         .catch((e) => handleErrorAndScreenshot(page, e, 'Getting-license-failed'));
@@ -188,6 +188,8 @@ exports.handleDetail = async (page, request) => {
     if (license == "You're signed out of YouTube"){
         license = "True";
     }
+    
+    */
 
     await Apify.pushData({
         title,
@@ -203,8 +205,8 @@ exports.handleDetail = async (page, request) => {
         numberOfSubscribers,
         duration: durationStr,
         details: description,
-        artistName,
-        license
+        artistName
+        //license
     });
 };
 
