@@ -189,7 +189,6 @@ exports.handleDetail = async (page, request) => {
 
     await Apify.pushData({
         title,
-        //license, // NEW --> added license variable to be pushed to Apify
         id: videoId,
         url: request.url,
         viewCount,
