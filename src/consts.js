@@ -30,7 +30,7 @@ exports.SELECTORS = {
         subscribersXp: "//*[@id='owner-sub-count']",
         descriptionXp: '//ytd-expander/div/div/yt-formatted-string',
         durationSlctr: '#movie_player span.ytp-time-duration',
-        //licenseXp: '//*[@id="content"]/yt-formatted-string' // NEW ---> added license pull with XPath from youtube description 
+        /* licenseXp: '//*[@id="content"]/yt-formatted-string' */ 
 
     },
 };
