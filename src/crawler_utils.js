@@ -175,7 +175,7 @@ exports.handleDetail = async (page, request) => {
 
     // NEW --> Added license variable to hold license data point and error handling
     
-  
+    /*
     log.debug(`searching for license at ${licenseXp}`);
     const license = await utils.getDataFromXpath(page, licenseXp, 'innerHTML')
         .catch((e) => handleErrorAndScreenshot(page, e, 'Getting-license-failed'));
@@ -185,7 +185,7 @@ exports.handleDetail = async (page, request) => {
         license = "True";
     }
     
-    
+    */
 
     await Apify.pushData({
         title,
@@ -201,8 +201,8 @@ exports.handleDetail = async (page, request) => {
         numberOfSubscribers,
         duration: durationStr,
         details: description,
-        artistName,
-        license
+        artistName
+        //license
     });
 };
 
