@@ -202,7 +202,7 @@ exports.handleDetail = async (page, request) => {
         duration: durationStr,
         details: description,
         artistName,
-        license
+        license,
     });
 };
 
