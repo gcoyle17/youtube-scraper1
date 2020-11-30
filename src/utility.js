@@ -7,15 +7,15 @@ const { log, sleep } = Apify.utils;
 const CONSTS = require('./consts');
 
 exports.handleErrorAndScreenshot = async (page, e, errorName) => {
-    
+    /*
     if (errorName == 'Getting-license-failed') {
         return;
     }
-    
-    else{
+    */
+    //else{
     await Apify.utils.puppeteer.saveSnapshot(page, { key: `ERROR-${errorName}-${Math.random()}`});
     throw `Error: ${errorName} - Raw error: ${e.message}`;
-    }
+    //}
 };
 
 /**
