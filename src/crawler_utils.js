@@ -96,7 +96,7 @@ exports.handleMaster = async (page, requestQueue, input, request) => {
 exports.handleDetail = async (page, request) => {
     //NEW --> Added licenseXp to const list
     
-    const { titleXp, viewCountXp, uploadDateXp, likesXp, dislikesXp, channelXp, subscribersXp, descriptionXp, durationSlctr, licenseXp } = CONSTS.SELECTORS.VIDEO;
+    const { titleXp, viewCountXp, uploadDateXp, likesXp, dislikesXp, channelXp, subscribersXp, descriptionXp, durationSlctr } = CONSTS.SELECTORS.VIDEO;
     
 
     
@@ -106,28 +106,11 @@ exports.handleDetail = async (page, request) => {
     const videoId = utils.getVideoId(request.url);
     log.debug(`got videoId as ${videoId}`);
 
-    
-    
     log.debug(`searching for title at ${titleXp}`);
     const title = await utils.getDataFromXpath(page, titleXp, 'innerHTML')
         .catch((e) => handleErrorAndScreenshot(page, e, 'Getting-title-failed'));
     log.debug(`got title as ${title}`);
-    
-    var artistName = " ";
-
-    var nameArr = ['Drake', 'The Libertines', 'Radiohead', 'The XX', 'Lady Gaga', 'Dua Lipa', 'Tame Impala', 'Backstreet Boys', 'Elton John', 'Coldplay', 'Celine Dion', 'Céline Dion', 'Beach House', 'Mac Demarco', 'Adele', 'Tech N9ne', 'Thrice', 'Ariel Pink', 'Vampire Weekend', 'Spice Girls', 'Talib Kweli', 'Robert Glasper', 'Black Marble', 'DIIV', 'Bon Iver', 'Delta Rae', 'String Cheese Incident'];
-
-    var lowerTitle = title.toLowerCase();
-
-    for (var i in nameArr){
-        var item = nameArr[i];
-        if(lowerTitle.indexOf(item.toLowerCase()) > -1){
-            artistName = item;
-        }
-    }
-    
-    
-
+  
     log.debug(`searching for viewCount at ${viewCountXp}`);
     const viewCountStr = await utils.getDataFromXpath(page, viewCountXp, 'innerHTML')
         .catch((e) => handleErrorAndScreenshot(page, e, 'Getting-viewCount-failed'));
@@ -172,6 +155,20 @@ exports.handleDetail = async (page, request) => {
     log.debug(`got videoDuration as ${durationStr}`);
 
     const description = await utils.getDataFromXpath(page, descriptionXp, 'innerHTML');
+    
+    
+    var artistName = " ";
+
+    var nameArr = ['Drake', 'The Libertines', 'Radiohead', 'The XX', 'Lady Gaga', 'Dua Lipa', 'Tame Impala', 'Backstreet Boys', 'Elton John', 'Coldplay', 'Celine Dion', 'Céline Dion', 'Beach House', 'Mac Demarco', 'Adele', 'Tech N9ne', 'Thrice', 'Ariel Pink', 'Vampire Weekend', 'Spice Girls', 'Talib Kweli', 'Robert Glasper', 'Black Marble', 'DIIV', 'Bon Iver', 'Delta Rae', 'String Cheese Incident'];
+
+    var lowerTitle = title.toLowerCase();
+
+    for (var i in nameArr){
+        var item = nameArr[i];
+        if(lowerTitle.indexOf(item.toLowerCase()) > -1){
+            artistName = item;
+        }
+    }
 
     // NEW --> Added license variable to hold license data point and error handling
     
