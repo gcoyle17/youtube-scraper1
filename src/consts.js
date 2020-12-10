@@ -21,7 +21,7 @@ exports.SELECTORS = {
         url: 'a[href^="/watch"]',
     },
     VIDEO: {
-        titleXp: '//ytd-video-primary-info-renderer/div/h1/yt-formatted-string',
+        titleXp: '//*[@id="container"]/h1/yt-formatted-string',
         viewCountXp: '//yt-view-count-renderer/span[1]',
         uploadDateXp: '//ytd-video-primary-info-renderer/div/div/div[1]/div[2]/yt-formatted-string',
         likesXp: "//ytd-menu-renderer/div/ytd-toggle-button-renderer[1]/a/*[@id='text']",
@@ -30,7 +30,7 @@ exports.SELECTORS = {
         subscribersXp: "//*[@id='owner-sub-count']",
         descriptionXp: '//ytd-expander/div/div/yt-formatted-string',
         durationSlctr: '#movie_player span.ytp-time-duration',
-        // licenseXp: '//*[@id="content"]/yt-formatted-string',
+        
 
     },
 };
